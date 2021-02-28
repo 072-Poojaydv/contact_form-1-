@@ -1,0 +1,50 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=0.1">
+        <title>
+            Contact us!!
+        </title>
+        <link rel="stylesheet" type="text/css" href="C:\Users\HP\Desktop\contact\static\main.css">
+    </head>
+    <body>
+        {% for message in get_flashed_messages() %}
+        <div class="alert">
+            {{ message }}
+            <button type="button" class="close" onclick="myFunction()">&times;</button>
+        </div>
+        {% endfor %}
+        <section class="contact">
+            <div class="content">
+                <h2>Contact Us 24*7</h2>
+            </div>
+            
+            <div class="contactform">
+                <form action = "/contact" method="POST">
+                    <h2> ENQUIRY</h2>
+                    <div class="inputbox">
+                        <input type="text" name="Name" required="required">
+                        <span>FULL NAME:</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="email" name="email" required="required">
+                        <span>EMAIL:</span>
+                    </div>
+                    <div class="inputbox">
+                        <textarea name ="message" required="required"></textarea>
+                        <span>Type your query....</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="Submit" name="Submit" required="required">
+                    </div>
+                </form>
+            </div>
+        </section>
+        <script>
+            function myFunction() {
+                var msg = document.querySelector('.alert');
+                msg.remove();
+            }
+        </script>
+    </body>
+    </html>
